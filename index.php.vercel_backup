@@ -7,10 +7,10 @@
     <title>NextAgents Skill - Cộng đồng Agent Skill</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
-    <!-- Import Font Roboto -->
+    <!-- Import Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Import Fira Code for Code Blocks -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
@@ -27,16 +27,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-p-white text-p-dark dark:bg-p-dark dark:text-p-white min-h-screen flex flex-col">
+<body
+    class="bg-geist-bg bg-grid-pattern text-geist-text-secondary min-h-screen flex flex-col font-sans antialiased selection:bg-white selection:text-black">
 
     <!-- Header -->
-    <header
-        class="sticky top-0 z-40 bg-p-white/90 dark:bg-p-dark/90 backdrop-blur-md border-b border-border-light dark:border-p-dark-gray transition-colors duration-300">
+    <header class="sticky top-0 z-40 glass-effect transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-s-4 md:px-s-10 py-s-6 flex justify-between items-center">
             <div class="flex items-center gap-s-3 cursor-pointer" onclick="window.location.reload()">
                 <div
-                    class="w-10 h-10 bg-primary rounded-r-3 flex items-center justify-center text-white shadow-lg shadow-primary/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black shadow-lg shadow-white/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 8V4H8" />
                         <rect width="16" height="12" x="4" y="8" rx="2" />
@@ -47,33 +47,33 @@
                     </svg>
                 </div>
                 <div>
-                    <h1 class="text-heading-1 text-primary tracking-wide uppercase">Nencer Agent Hub</h1>
-                    <p class="text-xs text-p-grey dark:text-gray-400">Workflow Skills Library</p>
+                    <h1 class="text-sm font-bold text-white tracking-wide uppercase" data-i18n="header.title">Nencer
+                        Agent Hub</h1>
                 </div>
             </div>
 
-            <div class="flex items-center gap-s-6">
-                <button id="theme-toggle"
-                    class="p-s-3 rounded-r-6 hover:bg-border-light dark:hover:bg-p-dark-gray transition-all text-primary">
-                    <!-- Sun Icon (Light Mode) -->
-                    <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="hidden lucide lucide-sun">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <path d="M12 2v2"></path>
-                        <path d="M12 20v2"></path>
-                        <path d="m4.93 4.93 1.41 1.41"></path>
-                        <path d="m17.66 17.66 1.41 1.41"></path>
-                        <path d="M2 12h2"></path>
-                        <path d="M20 12h2"></path>
-                        <path d="m6.34 17.66-1.41 1.41"></path>
-                        <path d="m19.07 4.93-1.41 1.41"></path>
+            <div class="flex items-center gap-s-4">
+                <!-- Language Toggle -->
+                <div class="flex items-center gap-2 text-sm font-medium">
+                    <button id="lang-vi" onclick="setLanguage('vi')"
+                        class="text-geist-text-secondary hover:text-black dark:hover:text-white transition-colors">VI</button>
+                    <span class="text-geist-border">|</span>
+                    <button id="lang-en" onclick="setLanguage('en')"
+                        class="text-geist-text-secondary hover:text-black dark:hover:text-white transition-colors">EN</button>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" type="button"
+                    class="text-geist-text-secondary hover:bg-geist-accents-2 focus:outline-none focus:ring-2 focus:ring-gray-200 rounded-lg text-sm p-2.5 transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
-                    <!-- Moon Icon (Dark Mode) -->
-                    <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="hidden lucide lucide-moon">
-                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h1a1 1 0 100 2h-1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                 </button>
 
@@ -81,7 +81,8 @@
                 <div id="auth-section" class="flex items-center gap-4">
                     <!-- Guest View -->
                     <button onclick="toggleModal('login-modal')" id="btn-login"
-                        class="flex items-center gap-2 bg-p-dark dark:bg-p-white text-white dark:text-p-dark px-s-6 py-s-2 rounded-r-3 transition-colors hover:opacity-90 font-bold shadow-md">
+                        class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-md transition-colors hover:bg-gray-200 font-medium text-sm">
+                        data-i18n="header.login">
                         Đăng nhập
                     </button>
 
@@ -96,7 +97,7 @@
                                 <polyline points="17 8 12 3 7 8" />
                                 <line x1="12" x2="12" y1="3" y2="15" />
                             </svg>
-                            <span class="text-sm font-bold">Upload</span>
+                            <span class="text-sm font-bold" data-i18n="header.upload">Upload</span>
                         </button>
                         <div class="relative group">
                             <div
@@ -114,7 +115,7 @@
                                 <div
                                     class="bg-white dark:bg-p-dark rounded-r-3 shadow-xl border border-border-light dark:border-p-dark-gray">
                                     <div class="px-4 py-3 border-b border-border-light dark:border-p-dark-gray">
-                                        <p class="text-xs text-p-grey">Signed in as</p>
+                                        <p class="text-xs text-p-grey" data-i18n="header.signed_in">Signed in as</p>
                                         <p id="user-email-display"
                                             class="text-sm font-bold truncate text-p-dark dark:text-p-white">
                                             user@example.com</p>
@@ -128,10 +129,11 @@
                                             <path d="M2 17l10 5 10-5"></path>
                                             <path d="M2 12l10 5 10-5"></path>
                                         </svg>
-                                        My Skills
+                                        <span data-i18n="header.my_skills">My Skills</span>
                                     </button>
                                     <button onclick="handleLogout()"
-                                        class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors rounded-b-r-3">Đăng
+                                        class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors rounded-b-r-3"
+                                        data-i18n="header.logout">Đăng
                                         xuất</button>
                                 </div>
                             </div>
@@ -145,41 +147,45 @@
     <!-- Main Content -->
     <main class="flex-grow max-w-7xl mx-auto px-s-4 md:px-s-10 py-s-11 w-full">
         <!-- Search & Filter -->
-        <div class="mb-s-12 flex flex-col md:flex-row gap-s-6 justify-between items-end md:items-center">
-            <div class="w-full md:w-1/2">
-                <h2 class="text-heading-lg mb-s-2 text-p-dark dark:text-p-white">Khám phá Workflows</h2>
-                <p class="text-p-grey text-sm">Kho lưu trữ các skill AI được đóng gói sẵn sàng sử dụng.</p>
+        <div class="mb-s-12 flex flex-col items-center text-center mt-10">
+            <div class="w-full max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight"><span class="text-gradient"
+                        data-i18n="hero.title">Khám phá
+                        Workflows</span></h2>
+                <p class="text-geist-text-secondary text-lg mb-8" data-i18n="hero.subtitle">Kho lưu trữ các skill AI
+                    được đóng gói sẵn sàng sử
+                    dụng.</p>
                 <!-- Status Indicator -->
-                <div id="db-status" class="text-xs mt-2 text-yellow-600 dark:text-yellow-400 hidden">⚠️ Đang chạy chế độ
+                <div id="db-status" class="text-xs mt-2 text-yellow-600 dark:text-yellow-400 hidden"
+                    data-i18n="hero.mock_data">⚠️ Đang chạy chế độ
                     Mock Data</div>
             </div>
-            <div class="w-full md:w-1/2">
-                <div class="relative w-full group">
-                    <input type="text" id="searchInput" placeholder="Tìm kiếm skill (VD: SEO, Marketing...)"
-                        class="w-full bg-white dark:bg-p-dark border border-border-light dark:border-p-dark-gray text-p-dark dark:text-p-white px-s-6 py-s-3 rounded-r-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-sm">
-                    <button id="searchBtn"
-                        class="absolute right-3 top-2.5 p-1 text-p-grey hover:text-primary transition-colors">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </button>
+            <div class="relative w-full group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
                 </div>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm skill (VD: SEO, Marketing...)"
+                    data-i18n="search.placeholder"
+                    class="w-full bg-geist-surface border border-geist-border text-white px-10 py-3 rounded-md focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-gray-600">
             </div>
+        </div>
         </div>
 
         <!-- Tags -->
         <div class="flex gap-s-3 overflow-x-auto pb-s-6 mb-s-6 scrollbar-hide" id="category-filters"></div>
         <!-- Result Info -->
         <div class="flex justify-between items-center mb-6 px-1">
-            <span id="result-count" class="text-xs text-p-grey font-semibold">Đang tải dữ liệu...</span>
+            <span id="result-count" class="text-xs text-p-grey font-semibold"><span data-i18n="result.loading">Đang tải
+                    dữ liệu...</span></span>
             <div class="flex items-center gap-4">
                 <!-- View Toggle -->
-                <div class="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-r-3 p-1">
+                <div class="flex items-center gap-1 bg-geist-surface rounded-md p-1 border border-geist-border">
                     <button id="btn-grid-view" onclick="setViewMode('grid')"
-                        class="p-2 rounded-r-2 bg-white dark:bg-p-dark shadow-sm text-primary transition-all"
-                        title="Grid View">
+                        class="p-2 rounded-sm bg-geist-accents-2 shadow-sm text-white transition-all" title="Grid View">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-layout-grid">
@@ -207,9 +213,9 @@
                 <div class="flex items-center gap-2 text-xs text-p-grey">
                     <span>Sắp xếp:</span>
                     <select
-                        class="bg-transparent border-none focus:ring-0 text-p-dark dark:text-p-white font-semibold cursor-pointer">
-                        <option>Mới nhất</option>
-                        <option>Phổ biến nhất</option>
+                        class="bg-transparent border-none focus:ring-0 text-white font-medium cursor-pointer text-sm">
+                        <option data-i18n="sort.newest">Mới nhất</option>
+                        <option data-i18n="sort.popular">Phổ biến nhất</option>
                     </select>
                 </div>
             </div>
@@ -221,13 +227,12 @@
     </main>
 
     <!-- Footer -->
-    <footer
-        class="bg-footer-bg dark:bg-footer-dark border-t border-border-light dark:border-p-dark-gray pt-s-16 pb-s-8 mt-s-16">
+    <footer class="bg-black border-t border-geist-border pt-16 pb-8 mt-16">
         <div class="max-w-7xl mx-auto px-s-4 md:px-s-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
                 <div class="lg:col-span-2">
                     <div class="flex items-center gap-s-3 mb-4">
-                        <div class="w-8 h-8 bg-primary rounded-r-3 flex items-center justify-center text-white">
+                        <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center text-black">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -239,32 +244,33 @@
                                 <path d="M9 13v2" />
                             </svg>
                         </div>
-                        <span class="text-heading-1 text-primary tracking-wide">NENCER AGENT HUB</span>
+                        <span class="text-lg font-bold text-white tracking-wide">NENCER AGENT HUB</span>
                     </div>
-                    <p class="text-p-grey text-sm mb-6 leading-relaxed max-w-sm">Nền tảng chia sẻ Workflow Agent Skill
+                    <p class="text-p-grey text-sm mb-6 leading-relaxed max-w-sm" data-i18n="footer.desc">Nền tảng chia
+                        sẻ Workflow Agent Skill
                         hàng đầu. </p>
                 </div>
                 <div>
-                    <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-4">Sản phẩm</h4>
+                    <h4 class="font-bold text-white mb-4" data-i18n="footer.product">Sản phẩm</h4>
                     <ul class="space-y-3 text-sm text-p-grey">
                         <li><a href="#" class="hover:text-primary">Agent SDK</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-4">Tài nguyên</h4>
+                    <h4 class="font-bold text-white mb-4" data-i18n="footer.resources">Tài nguyên</h4>
                     <ul class="space-y-3 text-sm text-p-grey">
                         <li><a href="#" class="hover:text-primary">API Docs</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-4">Công ty</h4>
+                    <h4 class="font-bold text-white mb-4" data-i18n="footer.company">Công ty</h4>
                     <ul class="space-y-3 text-sm text-p-grey">
-                        <li><a href="#" class="hover:text-primary">Liên hệ</a></li>
+                        <li><a href="#" class="hover:text-primary" data-i18n="footer.contact">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
             <div
-                class="pt-8 border-t border-border-light dark:border-p-dark-gray flex flex-col md:flex-row justify-between items-center text-sm text-p-grey">
+                class="pt-8 border-t border-geist-border flex flex-col md:flex-row justify-between items-center text-sm text-geist-text-secondary">
                 <p>&copy; 2026 Nencer Agent Hub. Powered by Supabase.</p>
             </div>
         </div>
@@ -282,81 +288,38 @@
         <span id="toast-message" class="font-medium text-sm">Thành công!</span>
     </div>
 
-    <!-- Login Modal (Redesigned) -->
-    <div id="login-modal" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-            onclick="toggleModal('login-modal')"></div>
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden fixed inset-0 z-50 flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('login-modal')"></div>
         <div
-            class="relative bg-white dark:bg-p-dark w-full max-w-md rounded-2xl shadow-2xl overflow-hidden transform transition-all scale-100">
-            <!-- Close Button -->
-            <button onclick="toggleModal('login-modal')"
-                class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
-            <div class="p-8 pt-10 text-center">
-                <!-- Logo/Icon -->
-                <div
-                    class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transform rotate-3 shadow-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="text-primary">
-                        <path
-                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
-                        </path>
-                        <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                </div>
-
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">Chào mừng trở lại!</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-8">Đăng nhập để chia sẻ và khám phá hàng ngàn AI
-                    Skills.</p>
-
-                <div class="space-y-3">
-                    <!-- Google Login (Coming Soon) -->
-                    <!-- <button
-                        class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all bg-white dark:bg-transparent text-gray-700 dark:text-gray-200 font-medium group relative overflow-hidden opacity-60 cursor-not-allowed"
-                        title="Tính năng đang phát triển">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                                fill="#4285F4" />
-                            <path
-                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                                fill="#34A853" />
-                            <path
-                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                                fill="#FBBC05" />
-                            <path
-                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                                fill="#EA4335" />
-                        </svg>
-                        <span>Tiếp tục với Google (Sắp ra mắt)</span>
-                    </button> -->
-
-                    <!-- GitHub Login -->
-                    <button onclick="handleLogin('github')"
-                        class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-[#24292e] text-white rounded-xl hover:bg-black transition-all font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                            </path>
-                        </svg>
-                        <span>Tiếp tục với GitHub</span>
-                    </button>
-                </div>
+            class="relative bg-geist-surface w-full max-w-md mx-4 rounded-md shadow-modal border border-geist-border border-solid p-8">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-white mb-2" data-i18n="modal.login.welcome">Chào mừng trở lại!</h3>
+                <p class="text-sm text-geist-text-secondary" data-i18n="modal.login.desc">Đăng nhập để chia sẻ skill của
+                    bạn.</p>
             </div>
 
-            <div
-                class="px-8 py-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700 text-center">
-                <p class="text-xs text-gray-500 dark:text-gray-400">
-                    Bằng việc tiếp tục, bạn đồng ý với <a href="#" class="text-primary hover:underline">Điều khoản</a>
-                    và <a href="#" class="text-primary hover:underline">Chính sách bảo mật</a> của chúng tôi.
-                </p>
+            <div class="space-y-4">
+                <!-- GitHub Button -->
+                <button onclick="handleLogin('github')"
+                    class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-geist-border rounded-md hover:border-white transition-all bg-[#24292e] text-white font-semibold shadow-sm">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                    <span data-i18n="modal.login.github">Đăng nhập bằng GitHub</span>
+                </button>
+
+                <button onclick="handleLogin('mock')"
+                    class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-geist-border rounded-md hover:border-white transition-colors text-geist-text-secondary font-medium text-sm">
+                    <span data-i18n="modal.login.mock">Mock Login (Chế độ Test)</span>
+                </button>
+            </div>
+
+            <div class="mt-6 text-center">
+                <button onclick="toggleModal('login-modal')"
+                    class="text-sm text-geist-text-secondary hover:text-white transition-colors">Đóng</button>
             </div>
         </div>
     </div>
@@ -365,11 +328,11 @@
     <div id="upload-modal" class="modal hidden fixed inset-0 z-50 flex items-center justify-center">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('upload-modal')"></div>
         <div
-            class="relative bg-white dark:bg-p-dark w-full max-w-lg mx-4 rounded-r-5 shadow-modal border border-border-light dark:border-p-dark-gray p-s-8 overflow-y-auto max-h-[90vh]">
+            class="relative bg-geist-surface w-full max-w-lg mx-4 rounded-md shadow-modal border border-geist-border border-solid p-8 overflow-y-auto max-h-[90vh]">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-heading-lg text-primary">Upload New Skill</h3>
+                <h3 class="text-xl font-bold text-white" data-i18n="modal.upload.title">Upload New Skill</h3>
                 <button onclick="toggleModal('upload-modal')"
-                    class="text-p-grey hover:text-p-dark dark:hover:text-p-white transition-colors">
+                    class="text-geist-text-secondary hover:text-white transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -378,15 +341,16 @@
                 </button>
             </div>
             <form id="uploadForm" class="space-y-4">
-                <div><label class="block text-sm font-semibold mb-1 text-p-dark dark:text-p-white">Tên
-                        Skill</label><input required id="up_title" type="text" placeholder="VD: Marketing Pro"
-                        class="w-full px-4 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray bg-transparent dark:text-white focus:border-primary focus:outline-none">
+                <div><label class="block text-sm font-semibold mb-1 text-white" data-i18n="modal.upload.name">Tên
+                        Skill</label>
+                    <input required id="up_title" type="text" placeholder="VD: Marketing Pro"
+                        class="w-full px-4 py-2 rounded-md border border-geist-border border-solid bg-black text-white focus:border-white focus:outline-none placeholder-gray-600">
                 </div>
-                <div><label class="block text-sm font-semibold mb-1 text-p-dark dark:text-p-white">Mô tả
-                        ngắn</label><textarea required id="up_desc" rows="4"
-                        placeholder="Mô tả workflow của bạn... (Hỗ trợ Markdown)"
-                        class="w-full px-4 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray bg-transparent dark:text-white focus:border-primary focus:outline-none font-mono text-sm"></textarea>
-                    <p class="text-xs text-p-grey mt-1 flex items-center gap-1">
+                <div><label class="block text-sm font-semibold mb-1 text-white" data-i18n="modal.upload.desc">Mô tả
+                        ngắn</label>
+                    <textarea required id="up_desc" rows="4" placeholder="Mô tả workflow của bạn... (Hỗ trợ Markdown)"
+                        class="w-full px-4 py-2 rounded-md border border-geist-border border-solid bg-black text-white focus:border-white focus:outline-none font-mono text-sm placeholder-gray-600"></textarea>
+                    <p class="text-xs text-geist-text-secondary mt-1 flex items-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -398,9 +362,10 @@
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div><label class="block text-sm font-semibold mb-1 text-p-dark dark:text-p-white">Category</label>
+                    <div><label class="block text-sm font-semibold mb-1 text-white"
+                            data-i18n="modal.upload.category">Category</label>
                         <select id="up_category"
-                            class="w-full px-4 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray bg-transparent dark:text-white focus:border-primary focus:outline-none">
+                            class="w-full px-4 py-2 rounded-md border border-geist-border border-solid bg-black text-white focus:border-white focus:outline-none">
                             <option value="Marketing">Marketing</option>
                             <option value="Coding">Coding</option>
                             <option value="Data Analysis">Data Analysis</option>
@@ -409,21 +374,25 @@
                         </select>
                     </div>
                     <!-- Author will be auto-filled or editable -->
-                    <div><label class="block text-sm font-semibold mb-1 text-p-dark dark:text-p-white">Tác
-                            giả</label><input required id="up_author" type="text"
-                            class="w-full px-4 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray bg-transparent dark:text-white focus:border-primary focus:outline-none">
+                    <div><label class="block text-sm font-semibold mb-1 text-white" data-i18n="modal.upload.author">Tác
+                            giả</label>
+                        <input required id="up_author" type="text"
+                            class="w-full px-4 py-2 rounded-md border border-geist-border border-solid bg-black text-white focus:border-white focus:outline-none">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold mb-1 text-p-dark dark:text-p-white">Link GitHub</label>
+                    <label class="block text-sm font-semibold mb-1 text-white" data-i18n="modal.upload.link">Link
+                        GitHub</label>
                     <input id="up_link_git" type="url" placeholder="https://github.com/username/repo"
-                        class="w-full px-4 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray bg-transparent dark:text-white focus:border-primary focus:outline-none">
+                        class="w-full px-4 py-2 rounded-md border border-geist-border border-solid bg-black text-white focus:border-white focus:outline-none placeholder-gray-600">
                 </div>
                 <div class="flex justify-end gap-3 pt-4">
                     <button type="button" onclick="toggleModal('upload-modal')"
-                        class="px-6 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Hủy</button>
+                        class="px-6 py-2 rounded-md border border-geist-border border-solid text-white hover:bg-geist-accents-2 transition-colors"
+                        data-i18n="modal.upload.cancel">Hủy</button>
                     <button type="submit" id="btn-submit-upload"
-                        class="px-6 py-2 rounded-r-3 bg-primary text-white hover:bg-[#085a96] transition-colors">Upload</button>
+                        class="px-6 py-2 rounded-md bg-white text-black font-bold hover:bg-gray-200 transition-colors"
+                        data-i18n="modal.upload.submit">Upload</button>
                 </div>
             </form>
         </div>
@@ -433,22 +402,22 @@
     <div id="detail-modal" class="modal hidden fixed inset-0 z-50 flex items-center justify-center">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('detail-modal')"></div>
         <div
-            class="relative bg-white dark:bg-p-dark w-full max-w-2xl mx-4 rounded-r-5 shadow-modal border border-border-light dark:border-p-dark-gray overflow-hidden flex flex-col max-h-[90vh]">
-            <div
-                class="p-s-8 border-b border-border-light dark:border-p-dark-gray bg-gray-50 dark:bg-gray-800/50 flex justify-between items-start">
+            class="relative bg-geist-surface w-full max-w-2xl mx-4 rounded-md shadow-modal border border-geist-border border-solid overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-8 border-b border-geist-border border-solid bg-black/20 flex justify-between items-start">
                 <div class="flex gap-4">
                     <div id="detail-icon" class="w-16 h-16 rounded-r-4 flex items-center justify-center"></div>
                     <div>
                         <div class="flex items-center gap-2 mb-1">
-                            <h3 id="detail-title" class="text-heading-lg text-p-dark dark:text-p-white"></h3>
-                            <span id="detail-version" class="px-2 py-0.5 text-xs font-bold rounded"></span>
+                            <h3 id="detail-title" class="text-2xl font-bold text-white"></h3>
+                            <span id="detail-version"
+                                class="px-2 py-0.5 text-xs font-bold rounded border border-geist-border border-solid text-white"></span>
                         </div>
                         <p id="detail-author" class="text-sm text-p-grey mb-2"></p>
                         <div id="detail-tags" class="flex gap-2"></div>
                     </div>
                 </div>
                 <button onclick="toggleModal('detail-modal')"
-                    class="text-p-grey hover:text-p-dark dark:hover:text-p-white">
+                    class="text-geist-text-secondary hover:text-white transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -456,11 +425,12 @@
                     </svg>
                 </button>
             </div>
-            <div class="p-s-8 overflow-y-auto flex-1">
-                <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-2">Mô tả</h4>
-                <div id="detail-desc" class="markdown-body text-p-grey text-sm leading-relaxed mb-6"></div>
-                <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-2">Cài đặt (Terminal)</h4>
-                <div class="bg-code-bg rounded-r-3 p-4 mb-6 relative group">
+            <div class="p-8 overflow-y-auto flex-1">
+                <h4 class="font-bold text-white mb-2" data-i18n="modal.detail.desc">Mô tả</h4>
+                <div id="detail-desc" class="markdown-body text-geist-text-secondary text-sm leading-relaxed mb-6">
+                </div>
+                <h4 class="font-bold text-white mb-2" data-i18n="modal.detail.install">Cài đặt (Terminal)</h4>
+                <div class="bg-black border border-geist-border border-solid rounded-md p-4 mb-6 relative group">
                     <code
                         class="font-mono text-sm text-green-400">nencer install <span id="detail-install-slug"></span></code>
                     <button
@@ -473,27 +443,28 @@
                         </svg>
                     </button>
                 </div>
-                <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-2">Input / Output Mẫu</h4>
+                <h4 class="font-bold text-white mb-2">Input / Output Mẫu</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div
-                        class="bg-gray-50 dark:bg-gray-800 p-3 rounded-r-3 border border-border-light dark:border-p-dark-gray">
-                        <span class="text-xs font-bold text-p-grey uppercase block mb-2">Input (Prompt)</span>
-                        <code
-                            class="text-xs text-p-dark dark:text-p-white font-mono block">"Create a SEO blog post about AI Agents"</code>
+                    <div class="bg-black/40 p-3 rounded-md border border-geist-border border-solid">
+                        <span class="text-xs font-bold text-geist-text-secondary uppercase block mb-2"
+                            data-i18n="modal.detail.input">Input
+                            (Prompt)</span>
+                        <code class="text-xs text-white font-mono block">"Create a SEO blog post about AI Agents"</code>
                     </div>
-                    <div
-                        class="bg-gray-50 dark:bg-gray-800 p-3 rounded-r-3 border border-border-light dark:border-p-dark-gray">
-                        <span class="text-xs font-bold text-p-grey uppercase block mb-2">Output (Result)</span>
+                    <div class="bg-black/40 p-3 rounded-md border border-geist-border border-solid">
+                        <span class="text-xs font-bold text-geist-text-secondary uppercase block mb-2"
+                            data-i18n="modal.detail.output">Output
+                            (Result)</span>
                         <code
-                            class="text-xs text-p-dark dark:text-p-white font-mono block">"# AI Agents: The Future...\n\nIn this post, we will explore..."</code>
+                            class="text-xs text-white font-mono block">"# AI Agents: The Future...\n\nIn this post, we will explore..."</code>
                     </div>
                 </div>
             </div>
             <div
-                class="p-s-6 border-t border-border-light dark:border-p-dark-gray bg-white dark:bg-p-dark flex justify-between items-center">
+                class="p-6 border-t border-geist-border border-solid bg-geist-surface flex justify-between items-center">
                 <!-- GitHub Link -->
                 <a id="detail-github-link" href="#" target="_blank" rel="noopener noreferrer"
-                    class="hidden px-4 py-2 rounded-r-3 border border-p-dark-gray text-p-dark dark:text-p-white hover:bg-gray-100 dark:hover:bg-gray-800 font-semibold transition-colors flex items-center gap-2">
+                    class="hidden px-4 py-2 rounded-md border border-geist-border border-solid text-white hover:bg-geist-accents-2 font-semibold transition-colors flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-github">
@@ -506,9 +477,10 @@
                 </a>
                 <div class="flex gap-3">
                     <button onclick="toggleModal('detail-modal')"
-                        class="px-6 py-2 rounded-r-3 border border-border-light dark:border-p-dark-gray text-p-dark dark:text-p-white hover:bg-gray-100 dark:hover:bg-gray-800 font-semibold transition-colors">Đóng</button>
+                        class="px-6 py-2 rounded-md border border-geist-border border-solid text-white hover:bg-geist-accents-2 font-semibold transition-colors"
+                        data-i18n="modal.detail.close">Đóng</button>
                     <button id="btn-download-skill" onclick="downloadSkill()"
-                        class="px-6 py-2 rounded-r-3 bg-primary text-white hover:bg-[#085a96] shadow-lg shadow-primary/20 font-bold transition-colors flex items-center gap-2">
+                        class="px-6 py-2 rounded-md bg-white text-black hover:bg-gray-200 shadow-lg shadow-white/10 font-bold transition-colors flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-download">
@@ -516,7 +488,7 @@
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" x2="12" y1="15" y2="3"></line>
                         </svg>
-                        Tải về Skill
+                        <span data-i18n="modal.detail.download">Tải về Skill</span>
                     </button>
                 </div>
             </div>
@@ -528,9 +500,8 @@
     <div id="myskills-modal" class="modal hidden fixed inset-0 z-50 flex items-center justify-center">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('myskills-modal')"></div>
         <div
-            class="relative bg-white dark:bg-p-dark w-full max-w-2xl mx-4 rounded-r-5 shadow-modal border border-border-light dark:border-p-dark-gray overflow-hidden flex flex-col max-h-[85vh]">
-            <div
-                class="p-s-6 border-b border-border-light dark:border-p-dark-gray bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+            class="relative bg-geist-surface w-full max-w-2xl mx-4 rounded-md shadow-modal border border-geist-border border-solid overflow-hidden flex flex-col max-h-[85vh]">
+            <div class="p-6 border-b border-geist-border border-solid bg-black/20 flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-primary/10 rounded-r-3 flex items-center justify-center text-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -541,12 +512,13 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-heading-1 text-p-dark dark:text-p-white">My Skills</h3>
-                        <p class="text-xs text-p-grey">Quản lý các skill bạn đã upload</p>
+                        <h3 class="text-lg font-bold text-white" data-i18n="modal.myskills.title">My Skills</h3>
+                        <p class="text-xs text-geist-text-secondary" data-i18n="modal.myskills.desc">Quản lý các skill
+                            bạn đã upload</p>
                     </div>
                 </div>
                 <button onclick="toggleModal('myskills-modal')"
-                    class="text-p-grey hover:text-p-dark dark:hover:text-p-white transition-colors">
+                    class="text-geist-text-secondary hover:text-white transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -554,9 +526,9 @@
                     </svg>
                 </button>
             </div>
-            <div id="myskills-content" class="p-s-6 overflow-y-auto flex-1">
+            <div id="myskills-content" class="p-6 overflow-y-auto flex-1">
                 <!-- Content will be rendered by JS -->
-                <div class="text-center py-10 text-p-grey">
+                <div class="text-center py-10 text-geist-text-secondary">
                     <p>Đang tải...</p>
                 </div>
             </div>
@@ -567,6 +539,155 @@
     <script>
         const SUPABASE_URL = 'https://buvjmekdaddnyxzlqypl.supabase.co'; // Điền URL của bạn
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1dmptZWtkYWRkbnl4emxxeXBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzMDUwMjYsImV4cCI6MjA4NTg4MTAyNn0.ygGy8UGNwCofUNrPNKQByRD4rUg9fr1GqTy83WjUyKQ'; // Điền Key Anon
+
+        // --- I18n Configuration ---
+        const translations = {
+            vi: {
+                "header.title": "Nencer Agent Hub",
+                "header.login": "Đăng nhập",
+                "header.upload": "Upload",
+                "header.signed_in": "Đăng nhập với",
+                "header.my_skills": "Skill của tôi",
+                "header.logout": "Đăng xuất",
+                "hero.title": "Khám phá Workflows",
+                "hero.subtitle": "Kho lưu trữ các skill AI được đóng gói sẵn sàng sử dụng.",
+                "hero.mock_data": "⚠️ Đang chạy chế độ Mock Data",
+                "search.placeholder": "Tìm kiếm skill (VD: SEO, Marketing...)",
+                "filter.all": "Tất cả",
+                "result.loading": "Đang tải dữ liệu...",
+                "result.showing": "Hiển thị",
+                "result.total": "kết quả",
+                "sort.newest": "Mới nhất",
+                "sort.popular": "Phổ biến nhất",
+                "result.not_found": "Không tìm thấy kết quả",
+                "filter.clear": "Xóa bộ lọc",
+                "btn.detail": "Chi tiết",
+                "footer.desc": "Nền tảng chia sẻ Workflow Agent Skill hàng đầu.",
+                "footer.product": "Sản phẩm",
+                "footer.resources": "Tài nguyên",
+                "footer.company": "Công ty",
+                "footer.contact": "Liên hệ",
+                "modal.login.welcome": "Chào mừng trở lại!",
+                "modal.login.desc": "Đăng nhập để chia sẻ skill của bạn.",
+                "modal.login.github": "Đăng nhập bằng GitHub",
+                "modal.login.mock": "Mock Login (Chế độ Test)",
+                "modal.upload.title": "Upload New Skill",
+                "modal.upload.name": "Tên Skill",
+                "modal.upload.desc": "Mô tả ngắn",
+                "modal.upload.category": "Category",
+                "modal.upload.author": "Tác giả",
+                "modal.upload.link": "Link GitHub",
+                "modal.upload.cancel": "Hủy",
+                "modal.upload.submit": "Upload",
+                "modal.myskills.title": "My Skills",
+                "modal.myskills.desc": "Quản lý các skill bạn đã upload",
+                "modal.myskills.empty": "Chưa có skill nào",
+                "modal.myskills.start": "Bắt đầu upload skill đầu tiên của bạn!",
+                "modal.detail.desc": "Mô tả",
+                "modal.detail.install": "Cài đặt (Terminal)",
+                "modal.detail.input": "Input (Prompt)",
+                "modal.detail.output": "Output (Result)",
+                "modal.detail.download": "Tải về Skill",
+                "modal.detail.close": "Đóng"
+            },
+            en: {
+                "header.title": "Nencer Agent Hub",
+                "header.login": "Login",
+                "header.upload": "Upload",
+                "header.signed_in": "Signed in as",
+                "header.my_skills": "My Skills",
+                "header.logout": "Logout",
+                "hero.title": "Explore Workflows",
+                "hero.subtitle": "A repository of ready-to-use AI skills.",
+                "hero.mock_data": "⚠️ Running in Mock Data Mode",
+                "search.placeholder": "Search skills (e.g., SEO, Marketing...)",
+                "filter.all": "All",
+                "result.loading": "Loading data...",
+                "result.showing": "Showing",
+                "result.total": "results",
+                "sort.newest": "Newest",
+                "sort.popular": "Most Popular",
+                "result.not_found": "No results found",
+                "filter.clear": "Clear filters",
+                "btn.detail": "Details",
+                "footer.desc": "The leading Workflow Agent Skill sharing platform.",
+                "footer.product": "Product",
+                "footer.resources": "Resources",
+                "footer.company": "Company",
+                "footer.contact": "Contact",
+                "modal.login.welcome": "Welcome back!",
+                "modal.login.desc": "Login to share your skills.",
+                "modal.login.github": "Login with GitHub",
+                "modal.login.mock": "Mock Login (Test Mode)",
+                "modal.upload.title": "Upload New Skill",
+                "modal.upload.name": "Skill Name",
+                "modal.upload.desc": "Short Description",
+                "modal.upload.category": "Category",
+                "modal.upload.author": "Author",
+                "modal.upload.link": "GitHub Link",
+                "modal.upload.cancel": "Cancel",
+                "modal.upload.submit": "Upload",
+                "modal.myskills.title": "My Skills",
+                "modal.myskills.desc": "Manage your uploaded skills",
+                "modal.myskills.empty": "No skills yet",
+                "modal.myskills.start": "Start uploading your first skill!",
+                "modal.detail.desc": "Description",
+                "modal.detail.install": "Install (Terminal)",
+                "modal.detail.input": "Input (Prompt)",
+                "modal.detail.output": "Output (Result)",
+                "modal.detail.download": "Download Skill",
+                "modal.detail.close": "Close"
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'vi';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            updateContent();
+            updateActiveLangUI();
+        }
+
+        function getText(key) {
+            return translations[currentLang][key] || key;
+        }
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[currentLang][key];
+                    } else {
+                        // Check if element has child nodes that should remain (like icons)
+                        // Simple approach: if it has only text, replace it. If it has structure, we might need specific handling.
+                        // For now, let's assume we wrap text in spans if needed, or replace pure text content.
+                        // Better approach: Use a specific replacer or ensure html structure allows text replacement.
+                        // Let's try replacing textContent but keeping children if possible? No, that's complex.
+                        // We will rely on text-only elements for data-i18n or update specific parts.
+                        el.textContent = translations[currentLang][key];
+                    }
+                }
+            });
+            // Update dynamic elements manually if needed
+            updateResultCount(); // Re-render count which uses text
+        }
+
+        function updateActiveLangUI() {
+            const btnVi = document.getElementById('lang-vi');
+            const btnEn = document.getElementById('lang-en');
+            if (btnVi && btnEn) {
+                if (currentLang === 'vi') {
+                    btnVi.classList.add('font-bold', 'underline');
+                    btnEn.classList.remove('font-bold', 'underline');
+                } else {
+                    btnEn.classList.add('font-bold', 'underline');
+                    btnVi.classList.remove('font-bold', 'underline');
+                }
+            }
+        }
+
 
         let supabaseClient = null;
         let useMockData = true;
@@ -671,7 +792,15 @@
         }
 
         async function handleLogin(provider) {
-            if (!useMockData && supabaseClient) {
+            if (provider === 'mock') {
+                // Mock Login
+                const fakeUser = { email: 'demo@nencer.vn', id: 'mock-id-123' };
+                state.user = fakeUser;
+                localStorage.setItem('nencer_mock_user', JSON.stringify(fakeUser));
+                showToast("Đăng nhập Mock thành công!");
+                toggleModal('login-modal');
+                renderHeaderAuth();
+            } else if (!useMockData && supabaseClient) {
                 // Real Supabase Login (Generic for Google, GitHub, etc.)
                 try {
                     const { data, error } = await supabaseClient.auth.signInWithOAuth({
@@ -775,8 +904,8 @@
                     downloads: Math.floor(Math.random() * 2000) + 100,
                     icon_color: base.color,
                     bg_icon: base.bg,
-                    badge_bg: "bg-gray-100 dark:bg-gray-700",
-                    badge_text: "text-p-dark dark:text-gray-300",
+                    badge_bg: "bg-geist-surface border border-geist-border",
+                    badge_text: "text-white",
                     icon_svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path></svg>`
                 });
             }
@@ -904,7 +1033,7 @@
             const container = document.getElementById('skills-grid');
             let html = '';
             for (let i = 0; i < state.itemsPerPage; i++) {
-                html += `<div class="bg-white dark:bg-[#2f3031] border border-border-light dark:border-p-dark-gray rounded-r-5 p-s-8 flex flex-col h-[280px] animate-pulse"><div class="flex justify-between items-start mb-s-6"><div class="w-12 h-12 rounded-r-3 skeleton"></div><div class="w-16 h-6 rounded-r-2 skeleton"></div></div><div class="w-3/4 h-6 mb-2 skeleton rounded"></div><div class="w-full h-4 mb-2 skeleton rounded"></div><div class="w-2/3 h-4 mb-s-8 skeleton rounded"></div></div>`;
+                html += `<div class="bg-geist-surface border border-geist-border rounded-md p-6 flex flex-col h-[280px] animate-pulse"><div class="flex justify-between items-start mb-6"><div class="w-12 h-12 rounded-md skeleton"></div><div class="w-16 h-6 rounded-md skeleton"></div></div><div class="w-3/4 h-6 mb-2 skeleton rounded"></div><div class="w-full h-4 mb-2 skeleton rounded"></div><div class="w-2/3 h-4 mb-8 skeleton rounded"></div></div>`;
             }
             container.innerHTML = html;
         }
@@ -914,8 +1043,9 @@
             let html = '';
             categories.forEach((cat) => {
                 const isActive = state.currentCategory === cat;
-                const activeClass = isActive ? 'bg-primary text-white border-primary shadow-md' : 'border-border-light dark:border-p-dark-gray hover:border-primary text-p-grey dark:text-p-white bg-white dark:bg-transparent';
-                html += `<button onclick="handleCategoryClick('${cat}')" class="category-tag px-s-6 py-s-2 border ${activeClass} text-link-text whitespace-nowrap transition-all duration-200">${cat}</button>`;
+                const activeClass = isActive ? 'bg-white text-black border-white' : 'border-geist-border text-geist-text-secondary bg-transparent hover:border-white hover:text-white';
+                const displayCat = cat === 'Tất cả' ? getText('filter.all') : cat;
+                html += `<button onclick="handleCategoryClick('${cat}')" class="category-tag px-4 py-1.5 border ${activeClass} text-sm font-medium whitespace-nowrap transition-all duration-200 rounded-full">${displayCat}</button>`;
             });
             container.innerHTML = html;
         }
@@ -931,7 +1061,7 @@
             }
 
             if (items.length === 0) {
-                container.innerHTML = `<div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20"><h3 class="text-heading-lg text-p-dark dark:text-p-white">Không tìm thấy kết quả</h3><button onclick="resetFilters()" class="mt-4 text-primary font-bold hover:underline">Xóa bộ lọc</button></div>`;
+                container.innerHTML = `<div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20"><h3 class="text-heading-lg text-p-dark dark:text-p-white">${getText('result.not_found')}</h3><button onclick="resetFilters()" class="mt-4 text-primary font-bold hover:underline">${getText('filter.clear')}</button></div>`;
                 return;
             }
 
@@ -964,34 +1094,34 @@
                             </div>
                             <span class="text-xs text-p-grey">${skill.author || 'Unknown'}</span>
                             <button onclick="viewDetail(${skill.id})" class="text-link-text text-p-accent hover:text-primary flex items-center gap-1 text-[13px] bg-transparent border-none cursor-pointer shrink-0">
-                                Chi tiết <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                ${getText('btn.detail')} <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </button>
                         </div>
                     </div>`;
                 } else {
                     // Grid View (default)
                     html += `
-                    <div class="group bg-white dark:bg-[#2f3031] border border-border-light dark:border-p-dark-gray rounded-r-5 p-s-8 hover:border-primary transition-all duration-300 hover:shadow-custom-1 flex flex-col h-full transform hover:-translate-y-1">
-                        <div class="flex justify-between items-start mb-s-6">
-                            <div class="w-12 h-12 rounded-r-3 ${bgIcon} flex items-center justify-center ${iconColor}">${svg}</div>
+                    <div class="group bg-geist-surface border border-geist-border rounded-md p-6 hover:border-white card-glow transition-all duration-300 flex flex-col h-full relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-md ${bgIcon} flex items-center justify-center ${iconColor}">${svg}</div>
                             <div class="flex flex-col items-end">
-                                <span class="px-s-3 py-1 ${badgeBg} ${badgeText} text-xs rounded-r-2 font-bold mb-1">${skill.version}</span>
+                                <span class="px-2 py-0.5 ${badgeBg} ${badgeText} text-[10px] rounded-full font-bold mb-1 border border-geist-border">${skill.version}</span>
                                 <div class="flex items-center gap-2">
                                     ${starsHtml}
-                                    <span class="text-[10px] text-p-grey flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg> ${skill.downloads}</span>
+                                    <span class="text-[10px] text-geist-text-secondary flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg> ${skill.downloads}</span>
                                 </div>
                             </div>
                         </div>
-                        <h3 onclick="viewDetail(${skill.id})" class="text-heading-1 text-p-dark dark:text-p-white mb-s-2 group-hover:text-primary transition-colors cursor-pointer">${skill.title}</h3>
-                        <p class="text-p-grey text-body-sm mb-s-8 flex-grow line-clamp-2">${skill.desc || ''}</p>
-                        <div class="flex flex-wrap gap-s-2 mb-s-6">${tags.map(tag => `<span class="px-s-2 py-1 bg-gray-100 dark:bg-gray-700 text-p-grey dark:text-gray-300 text-xs rounded-r-1">#${tag}</span>`).join('')}</div>
-                        <div class="pt-s-6 border-t border-border-light dark:border-p-dark-gray flex items-center justify-between">
-                            <div class="flex items-center gap-s-2">
-                                <div class="w-6 h-6 rounded-r-6 bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center text-[10px] text-white font-bold">${skill.author ? skill.author.charAt(0) : 'U'}</div>
-                                <span class="text-xs text-p-grey font-medium">${skill.author || 'Unknown'}</span>
+                        <h3 onclick="viewDetail(${skill.id})" class="text-xl font-bold text-white mb-2 group-hover:text-white transition-colors cursor-pointer tracking-tight">${skill.title}</h3>
+                        <p class="text-geist-text-secondary text-sm mb-6 flex-grow line-clamp-2 leading-relaxed">${skill.desc || ''}</p>
+                        <div class="flex flex-wrap gap-2 mb-6">${tags.map(tag => `<span class="px-2 py-0.5 bg-geist-accents-2 text-gray-300 text-[10px] rounded-md border border-geist-border">#${tag}</span>`).join('')}</div>
+                        <div class="pt-4 border-t border-geist-border flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-[10px] text-white font-bold border border-geist-border">${skill.author ? skill.author.charAt(0) : 'U'}</div>
+                                <span class="text-xs text-geist-text-secondary font-medium">${skill.author || 'Unknown'}</span>
                             </div>
-                            <button onclick="viewDetail(${skill.id})" class="text-link-text text-p-accent hover:text-primary flex items-center gap-1 text-[13px] bg-transparent border-none cursor-pointer">
-                                Chi tiết <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            <button onclick="viewDetail(${skill.id})" class="text-white hover:text-gray-300 flex items-center gap-1 text-[13px] bg-transparent border-none cursor-pointer font-medium">
+                                ${getText('btn.detail')} <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </button>
                         </div>
                     </div>`;
@@ -1010,17 +1140,17 @@
         function renderPagination() {
             const container = document.getElementById('pagination-container');
             if (state.totalPages <= 1) { container.innerHTML = ''; return; }
-            let html = `<button onclick="handlePageChange(${state.currentPage - 1})" ${state.currentPage === 1 ? 'disabled' : ''} class="w-10 h-10 flex items-center justify-center rounded-r-3 border border-border-light dark:border-p-dark-gray bg-white dark:bg-p-dark hover:border-primary hover:text-primary disabled:opacity-50 transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>`;
+            let html = `<button onclick="handlePageChange(${state.currentPage - 1})" ${state.currentPage === 1 ? 'disabled' : ''} class="w-9 h-9 flex items-center justify-center rounded-md border border-geist-border bg-geist-surface text-white hover:border-white disabled:opacity-50 disabled:hover:border-geist-border transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>`;
             for (let i = 1; i <= state.totalPages; i++) {
-                const activeClass = i === state.currentPage ? 'bg-primary text-white border-primary shadow-md' : 'bg-white dark:bg-p-dark text-p-dark dark:text-p-white border-border-light dark:border-p-dark-gray hover:border-primary hover:text-primary';
-                html += `<button onclick="handlePageChange(${i})" class="w-10 h-10 flex items-center justify-center rounded-r-3 border text-sm font-bold ${activeClass} transition-all">${i}</button>`;
+                const activeClass = i === state.currentPage ? 'bg-white text-black border-white' : 'bg-geist-surface text-geist-text-secondary border-geist-border hover:text-white hover:border-white';
+                html += `<button onclick="handlePageChange(${i})" class="w-9 h-9 flex items-center justify-center rounded-md border text-xs font-bold ${activeClass} transition-all">${i}</button>`;
             }
-            html += `<button onclick="handlePageChange(${state.currentPage + 1})" ${state.currentPage === state.totalPages ? 'disabled' : ''} class="w-10 h-10 flex items-center justify-center rounded-r-3 border border-border-light dark:border-p-dark-gray bg-white dark:bg-p-dark hover:border-primary hover:text-primary disabled:opacity-50 transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>`;
+            html += `<button onclick="handlePageChange(${state.currentPage + 1})" ${state.currentPage === state.totalPages ? 'disabled' : ''} class="w-9 h-9 flex items-center justify-center rounded-md border border-geist-border bg-geist-surface text-white hover:border-white disabled:opacity-50 disabled:hover:border-geist-border transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>`;
             container.innerHTML = html;
         }
 
         function updateResultCount() {
-            document.getElementById('result-count').innerHTML = `Hiển thị <b>${state.data.length}</b> kết quả (Tổng: ${state.totalItems})`;
+            document.getElementById('result-count').innerHTML = `${getText('result.showing')} <b>${state.data.length}</b> ${getText('result.total')} (Tổng: ${state.totalItems})`;
         }
 
         function showToast(msg) {
@@ -1261,10 +1391,10 @@
                                 <path d="M2 12l10 5 10-5"></path>
                             </svg>
                         </div>
-                        <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-2">Chưa có skill nào</h4>
-                        <p class="text-p-grey text-sm mb-4">Bắt đầu upload skill đầu tiên của bạn!</p>
+                        <h4 class="text-heading-1 text-p-dark dark:text-p-white mb-2">${getText('modal.myskills.empty')}</h4>
+                        <p class="text-p-grey text-sm mb-4">${getText('modal.myskills.start')}</p>
                         <button onclick="toggleModal('myskills-modal'); toggleModal('upload-modal');" class="px-4 py-2 bg-primary text-white rounded-r-3 hover:bg-[#085a96] transition-colors">
-                            Upload Skill
+                            ${getText('header.upload')}
                         </button>
                     </div>`;
                 return;
@@ -1286,25 +1416,25 @@
                 const safeLinkGit = escapeHtml(skill.link_git);
 
                 html += `
-                    <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800/50 rounded-r-3 border border-border-light dark:border-p-dark-gray hover:border-primary transition-colors group">
+                    <div class="flex items-center justify-between p-4 bg-black/40 rounded-md border border-geist-border border-solid hover:border-white transition-colors group">
                         <div class="flex items-center gap-3 flex-1 min-w-0">
-                            <div class="w-10 h-10 rounded-r-3 bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                            <div class="w-10 h-10 rounded-md bg-white/10 flex items-center justify-center text-white flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                                 </svg>
                             </div>
                             <div class="min-w-0">
-                                <h4 class="font-semibold text-p-dark dark:text-p-white truncate">${safeTitle}</h4>
-                                <p class="text-xs text-p-grey truncate">${safeCategory} • ${safeVersion}</p>
+                                <h4 class="font-semibold text-white truncate">${safeTitle}</h4>
+                                <p class="text-xs text-geist-text-secondary truncate">${safeCategory} • ${safeVersion}</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2 flex-shrink-0">
-                            ${skill.link_git ? `<a href="${safeLinkGit}" target="_blank" class="p-2 text-p-grey hover:text-primary transition-colors" title="View on GitHub">
+                            ${skill.link_git ? `<a href="${safeLinkGit}" target="_blank" class="p-2 text-geist-text-secondary hover:text-white transition-colors" title="View on GitHub">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                                 </svg>
                             </a>` : ''}
-                            <button class="btn-delete-skill p-2 text-p-grey hover:text-red-500 transition-colors" data-id="${skill.id}" data-title="${safeTitle}" title="Xóa skill">
+                            <button class="btn-delete-skill p-2 text-geist-text-secondary hover:text-red-500 transition-colors" data-id="${skill.id}" data-title="${safeTitle}" title="Xóa skill">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="3 6 5 6 21 6"></polyline>
                                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -1316,8 +1446,8 @@
                     </div>`;
             });
             html += '</div>';
-            html += `<div class="mt-4 pt-4 border-t border-border-light dark:border-p-dark-gray text-center">
-                <button onclick="toggleModal('myskills-modal'); toggleModal('upload-modal');" class="text-primary hover:underline text-sm font-semibold">+ Upload skill mới</button>
+            html += `<div class="mt-4 pt-4 border-t border-geist-border border-solid text-center">
+                <button onclick="toggleModal('myskills-modal'); toggleModal('upload-modal');" class="text-white hover:underline text-sm font-semibold">+ ${getText('modal.upload.title')}</button>
             </div>`;
             container.innerHTML = html;
 
@@ -1449,14 +1579,39 @@
             const themeToggleBtn = document.getElementById('theme-toggle');
             const lightIcon = document.getElementById('theme-toggle-light-icon');
             const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
             function setTheme(isDark) {
-                if (isDark) { document.documentElement.classList.add('dark'); localStorage.setItem('color-theme', 'dark'); lightIcon.classList.remove('hidden'); darkIcon.classList.add('hidden'); }
-                else { document.documentElement.classList.remove('dark'); localStorage.setItem('color-theme', 'light'); lightIcon.classList.add('hidden'); darkIcon.classList.remove('hidden'); }
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    if (lightIcon) lightIcon.classList.remove('hidden');
+                    if (darkIcon) darkIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    if (lightIcon) lightIcon.classList.add('hidden');
+                    if (darkIcon) darkIcon.classList.remove('hidden');
+                }
             }
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { setTheme(true); } else { setTheme(false); }
-            themeToggleBtn.addEventListener('click', function () { const isDark = document.documentElement.classList.contains('dark'); setTheme(!isDark); });
+
+            // Init theme
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                setTheme(true);
+            } else {
+                setTheme(false);
+            }
+
+            // Event Listener
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', function () {
+                    const isDark = document.documentElement.classList.contains('dark');
+                    setTheme(!isDark);
+                });
+            }
 
             checkAuth(); // Check user session
+            updateActiveLangUI(); // Init Lang UI
+            updateContent();    // Init content translation
             updateView();
         });
     </script>

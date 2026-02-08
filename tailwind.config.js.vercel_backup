@@ -1,0 +1,84 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./*.php", "./*.html", "./assets/js/**/*.js"],
+  darkMode: "class",
+  safelist: [
+    "bg-[#085a96]",
+    "bg-[#24292e]",
+    "min-h-[400px]",
+    "max-h-[90vh]",
+    "max-h-[85vh]",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#0a68ac", // Restore original primary or keep white? User wanted Vercel style. Vercel uses Black/White. Let's stick to vars.
+        "p-dark": "#000000",
+        "p-white": "#ffffff",
+        "p-accent": "#0d6efd",
+        "p-grey": "#888888",
+        "p-dark-gray": "#333333",
+        "p-header-dark": "#000000",
+        "border-pri": "#ffffff",
+        "border-light": "#eaeaea",
+        "footer-bg": "#fafafa",
+        "footer-dark": "#000000",
+        "code-bg": "#111111",
+        // Geist specific with CSS Variables
+        "geist-bg": "var(--geist-bg)",
+        "geist-surface": "var(--geist-surface)",
+        "geist-text-primary": "var(--geist-text-primary)",
+        "geist-text-secondary": "var(--geist-text-secondary)",
+        "geist-border": "var(--geist-border)",
+        "geist-accents-1": "var(--geist-accents-1)",
+        "geist-accents-2": "var(--geist-accents-2)",
+        "geist-accents-8": "var(--geist-accents-8)",
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"], // Default to Inter
+        roboto: ["Inter", "sans-serif"], // Fallback replacement
+        mono: ["Fira Code", "monospace"],
+      },
+      fontSize: {
+        "heading-1": ["16.1px", { lineHeight: "1.5", fontWeight: "600" }],
+        "heading-lg": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+        "btn-text": ["14px", { lineHeight: "1.5", fontWeight: "500" }], // Smaller, cleaner buttons
+        "link-text": ["14px", { lineHeight: "1.5", fontWeight: "500" }],
+        "body-sm": ["14px", { lineHeight: "1.6" }],
+        "body-xs": ["12px", { lineHeight: "1.5" }],
+      },
+      spacing: {
+        "s-1": "2px",
+        "s-2": "4px",
+        "s-3": "8px",
+        "s-4": "12px",
+        "s-5": "16px",
+        "s-6": "24px",
+        "s-7": "32px",
+        "s-8": "40px",
+        "s-10": "48px",
+        "s-11": "64px",
+        "s-12": "80px",
+        "s-16": "128px",
+      },
+      borderRadius: {
+        "r-1": "4px",
+        "r-2": "6px",
+        "r-3": "8px",
+        "r-4": "12px",
+        "r-5": "16px",
+        "r-6": "9999px",
+        tag: "9999px",
+      },
+      boxShadow: {
+        "custom-1": "0px 10px 30px -10px rgba(0, 0, 0, 0.1)",
+        modal:
+          "0 0 0 1px rgba(255,255,255,0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)",
+      },
+      animation: {
+        "pulse-fast": "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+    },
+  },
+  plugins: [],
+};
